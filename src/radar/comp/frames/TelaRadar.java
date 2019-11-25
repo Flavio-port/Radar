@@ -473,10 +473,13 @@ public class TelaRadar extends javax.swing.JFrame{
     }//GEN-LAST:event_txtDistAvioesActionPerformed
 
     private void btnTransladarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransladarActionPerformed
-        Aviao aviao = new Aviao();
-        aviao=tranforma.translandarAviao(1,1);
-        // Desenhar nova tela
-        System.out.println("Novo X= "+aviao.getX()+"/nNovo Y= "+aviao.getY());
+        
+        tabela=tranforma.translandarAviao(1,1,tabela);
+        
+        
+        
+        // Desenhar no radar
+       
     }//GEN-LAST:event_btnTransladarActionPerformed
 
     private void btnEscalonarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEscalonarActionPerformed

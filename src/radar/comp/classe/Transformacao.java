@@ -16,19 +16,17 @@ public class Transformacao {
     Aviao aviaoteste = new Aviao();
 
     public Stack<Aviao> translandarAviao(float transX, float transY,Stack<Aviao> tabela) {
-        aviaoteste.setX(3);
-        aviaoteste.setY(2);
-        aviaoteste.setX(aviaoteste.getX() + transX);
-        aviaoteste.setY(aviaoteste.getY() + transY);
+        for(int i=0;i<tabela.size();i++){
+        tabela.get(i).setX(aviaoteste.getX() + transX);
+        tabela.get(i).setY(aviaoteste.getY() + transY);
+        }
         return tabela;
     }
 
-    public Aviao escalonarAviao(float EscX, float EscY) {
+    public Stack<> escalonarAviao(float EscX, float EscY) {
         EscX = EscX / 100;
         EscY = EscY / 100;
-        System.out.println(EscX + "////////" + EscY);
-        aviaoteste.setX(3);
-        aviaoteste.setY(2);
+for(int i =0;i<tabela.)        
         aviaoteste.setX(aviaoteste.getX() * EscX);
         aviaoteste.setY(aviaoteste.getY() * EscY);
         return aviaoteste;
