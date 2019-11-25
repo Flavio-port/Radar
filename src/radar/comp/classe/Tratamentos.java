@@ -24,5 +24,13 @@ public class Tratamentos {
         }
         return cod;
     }
+    public boolean verificaAtivados(Aviao aviao){
+        if(aviao.getStatus().equals(0)){
+           return true; 
+        }
+        else {
+            return false;
+        }
+    }
     
 }

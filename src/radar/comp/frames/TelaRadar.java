@@ -16,6 +16,7 @@ import javax.swing.table.TableModel;
 import radar.comp.classe.Aviao;
 import radar.comp.classe.DataGrid;
 import radar.comp.classe.ModelotabelaAviao;
+import radar.comp.classe.Tabela;
 import radar.comp.classe.Transformacao;
 import radar.comp.classe.Tratamentos;
 
@@ -25,10 +26,8 @@ import radar.comp.classe.Tratamentos;
  */
 public class TelaRadar extends javax.swing.JFrame{
    
+     Tabela tabela = new Tabela();
      Transformacao tranforma = new Transformacao();
-     Stack<Aviao> tabela = new Stack<>();
-     ModelotabelaAviao modelo = new ModelotabelaAviao(tabela);
-     
      int idAviao =0;
    
     /**
@@ -37,7 +36,7 @@ public class TelaRadar extends javax.swing.JFrame{
     public TelaRadar() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
-        jTabelaAviao.setModel(modelo);
+        jTabelaAviao.setModel(tabela.criaTabela());
         
         
     }
@@ -447,10 +446,9 @@ public class TelaRadar extends javax.swing.JFrame{
          // float raio, float angulo, float velocidade, float direcao, Stack<Aviao> tabela
          /*aviao.novoAviao(aviao,Float.parseFloat(txtAviaoAnguloX.getText()), Float.parseFloat(txtAviaoAnguloY.getText()), Float.parseFloat(txtAviaoRaio.getText()), 
           Float.parseFloat(txtAviaoAnguloX.getText()), Float.parseFloat(txtAviaoAnguloX.getText()), tabela);*/ // Pega dos campos
-         tabela= aviao.novoAviao(aviao, 2, 2, 2, 2, 2,2, tabela,1);         
-         tabela= aviao2.novoAviao(aviao2, 1, 1, 1, 1,1,1, tabela,2);
-         ModelotabelaAviao modelo = new ModelotabelaAviao(tabela);
-         jTabelaAviao.setModel(modelo);
+         tabela.setTabela(aviao.novoAviao(aviao, 2, 2, 2, 2, 2,2,tabela.getTabela(),1));        
+         tabela.setTabela(aviao2.novoAviao(aviao2, 1, 1, 1, 1,1,1, tabela.getTabela(),2));
+         jTabelaAviao.setModel(tabela.salvaTabela(tabela.getTabela()));
         
          
          
@@ -473,11 +471,9 @@ public class TelaRadar extends javax.swing.JFrame{
     }//GEN-LAST:event_txtDistAvioesActionPerformed
 
     private void btnTransladarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransladarActionPerformed
-        
-        tabela=tranforma.translandarAviao(1,1,tabela);
-        
-        
-        
+ 
+        tabela.setTabela(tranforma.translandarAviao(1,1,tabela.getTabela()));
+        jTabelaAviao.setModel(tabela.salvaTabela(tabela.getTabela()));     
         // Desenhar no radar
        
     }//GEN-LAST:event_btnTransladarActionPerformed
@@ -502,9 +498,9 @@ public class TelaRadar extends javax.swing.JFrame{
         Tratamentos trat = new Tratamentos();
         int codAviao=trat.verificaInteiro(idAviaoDesativar);
         DataGrid dataGrid = new DataGrid();
-        tabela=dataGrid.desativaAviao(codAviao, tabela);
-        modelo= new ModelotabelaAviao(tabela);
-        jTabelaAviao.setModel(modelo);
+      //  tabela=dataGrid.desativaAviao(codAviao, tabela);
+       // modelo= new ModelotabelaAviao(tabela);
+       // jTabelaAviao.setModel(modelo);
           
     }//GEN-LAST:event_btnDesativarActionPerformed
 
@@ -514,9 +510,9 @@ public class TelaRadar extends javax.swing.JFrame{
          Tratamentos trat = new Tratamentos();
          int codAviao=trat.verificaInteiro(idAviaoAtivar);
          DataGrid dataGrid = new DataGrid();
-         tabela=dataGrid.ativaAviao(codAviao, tabela);
-         modelo= new ModelotabelaAviao(tabela);
-         jTabelaAviao.setModel(modelo);
+       //  tabela=dataGrid.ativaAviao(codAviao, tabela);
+       //  modelo= new ModelotabelaAviao(tabela);
+        // jTabelaAviao.setModel(modelo);
     }//GEN-LAST:event_btnAtivarActionPerformed
 
     private void txtEscalonarYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEscalonarYActionPerformed

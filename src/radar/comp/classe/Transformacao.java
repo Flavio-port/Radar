@@ -14,19 +14,24 @@ import java.util.Stack;
 public class Transformacao {
 
     Aviao aviaoteste = new Aviao();
+    Tratamentos trat = new Tratamentos();
 
     public Stack<Aviao> translandarAviao(float transX, float transY,Stack<Aviao> tabela) {
+        transX=2;
+        transY=2;        
         for(int i=0;i<tabela.size();i++){
-        tabela.get(i).setX(aviaoteste.getX() + transX);
-        tabela.get(i).setY(aviaoteste.getY() + transY);
+        if(trat.verificaAtivados(tabela.get(i))){
+        tabela.get(i).setX(tabela.get(i).getX() + transX);
+        tabela.get(i).setY(tabela.get(i).getY() + transY);
+         }
         }
         return tabela;
     }
 
-    public Stack<> escalonarAviao(float EscX, float EscY) {
+    public Aviao escalonarAviao(float EscX, float EscY) {
         EscX = EscX / 100;
         EscY = EscY / 100;
-for(int i =0;i<tabela.)        
+        
         aviaoteste.setX(aviaoteste.getX() * EscX);
         aviaoteste.setY(aviaoteste.getY() * EscY);
         return aviaoteste;
