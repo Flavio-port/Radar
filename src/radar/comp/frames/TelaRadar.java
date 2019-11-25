@@ -446,7 +446,7 @@ public class TelaRadar extends javax.swing.JFrame{
          // float raio, float angulo, float velocidade, float direcao, Stack<Aviao> tabela
          /*aviao.novoAviao(aviao,Float.parseFloat(txtAviaoAnguloX.getText()), Float.parseFloat(txtAviaoAnguloY.getText()), Float.parseFloat(txtAviaoRaio.getText()), 
           Float.parseFloat(txtAviaoAnguloX.getText()), Float.parseFloat(txtAviaoAnguloX.getText()), tabela);*/ // Pega dos campos
-         tabela.setTabela(aviao.novoAviao(aviao, 2, 2, 2, 2, 2,2,tabela.getTabela(),1));        
+         tabela.setTabela(aviao.novoAviao(aviao, 3, 2, 2, 2, 2,2,tabela.getTabela(),1));        
          tabela.setTabela(aviao2.novoAviao(aviao2, 1, 1, 1, 1,1,1, tabela.getTabela(),2));
          jTabelaAviao.setModel(tabela.salvaTabela(tabela.getTabela()));
         
@@ -479,17 +479,19 @@ public class TelaRadar extends javax.swing.JFrame{
     }//GEN-LAST:event_btnTransladarActionPerformed
 
     private void btnEscalonarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEscalonarActionPerformed
-        Aviao aviao = new Aviao();
-        aviao=tranforma.escalonarAviao(100,50);
+       
+    tabela.setTabela(tranforma.escalonarAviao(100,50,tabela.getTabela()));
+    jTabelaAviao.setModel(tabela.salvaTabela(tabela.getTabela()));
         // Desenhar nova tela
-        System.out.println("Novo X= "+aviao.getX()+"/nNovo Y= "+aviao.getY());
+
     }//GEN-LAST:event_btnEscalonarActionPerformed
 
     private void btnRotacionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRotacionarActionPerformed
-        Aviao aviao = new Aviao();
-        aviao=tranforma.rotacionarAviao(0,0,45);
+      
+        tabela.setTabela(tranforma.rotacionarAviao(0,0,45,tabela.getTabela()));
+        jTabelaAviao.setModel(tabela.salvaTabela(tabela.getTabela()));
         // Desenhar nova tela
-        System.out.println("Novo X= "+aviao.getX()+"/nNovo Y= "+aviao.getY());
+     
     }//GEN-LAST:event_btnRotacionarActionPerformed
 
     private void btnDesativarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesativarActionPerformed

@@ -25,7 +25,7 @@ public class Tratamentos {
         return cod;
     }
     public boolean verificaAtivados(Aviao aviao){
-        if(aviao.getStatus().equals(0)){
+        if(aviao.getStatus().equals(1)){
            return true; 
         }
         else {
